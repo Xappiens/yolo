@@ -1,3 +1,8 @@
+"""
+YOLO Event Detector - PyQt6 Desktop App
+
+This application allows you to select a camera, define custom event rules (notifications, commands, emails), and monitor real-time object detection using YOLOv8.
+"""
 import sys
 import cv2
 import numpy as np
@@ -368,7 +373,7 @@ class MainWindow(QMainWindow):
     def execute_action(self, rule, detection):
         if rule.action_type == "notify":
             QMessageBox.information(self, "Evento Detectado",
-                                  f"Se detectó {detection['class']} con confianza {detection['confidence']:.2f}")
+                                  f"Se detectó {detection['class']} with confidence {detection['confidence']:.2f}")
 
         elif rule.action_type == "command" and rule.command:
             try:

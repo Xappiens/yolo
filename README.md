@@ -2,7 +2,7 @@
 
 ## 📋 Overview
 
-**YOLO Computer Vision Apps** is an educational and experimentation platform that enables students, developers, and researchers to work with state-of-the-art computer vision models without complex setup requirements. The project includes multiple containerized web applications implementing different interfaces for object detection, segmentation, classification, and pose estimation using the YOLO model family.
+**YOLO Computer Vision Apps** is an educational and experimentation platform that enables you to work with state-of-the-art computer vision models, including web and desktop interfaces, as well as tools for custom training and image annotation.
 
 ## 🎯 Project Goals
 
@@ -365,3 +365,79 @@ Las contribuciones son bienvenidas. Por favor, sigue estos pasos:
 ## Licencia
 
 Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+
+## 🖥️ Aplicaciones incluidas
+
+### 1. App de escritorio (PyQt6)
+
+- Archivo: `yolo_desktop.py`
+- Permite seleccionar la cámara, definir reglas de eventos personalizados (notificaciones, comandos, emails) y monitorizar detecciones en tiempo real.
+- **Uso:**
+  ```bash
+  py -3.12 yolo_desktop.py
+  ```
+
+### 2. Dashboard web en tiempo real (Streamlit)
+
+- Archivo: `app.py`
+- Interfaz web moderna para detección en tiempo real, estadísticas, grabación y selección de cámara.
+- **Uso:**
+  ```bash
+  streamlit run app.py
+  ```
+
+### 3. Herramienta de anotación LabelImg
+
+- Instalación incluida vía pip.
+- Permite anotar imágenes localmente en formato YOLO.
+- **Uso:**
+  ```bash
+  labelImg
+  ```
+
+### 4. Entrenamiento personalizado con Roboflow y YOLOv8
+
+- Sube tus imágenes a [Roboflow](https://roboflow.com/), anótalas y exporta en formato YOLOv8.
+- Descarga el dataset y entrena tu modelo con:
+  ```bash
+  yolo detect train data=data.yaml model=yolov8n.pt epochs=50 imgsz=640
+  ```
+- Cambia el modelo en las apps para usar tu modelo entrenado (`best.pt`).
+
+### 5. Etiquetado masivo de imágenes desde ZIP (Bulk Labeler)
+
+- Archivo: `bulk_labeler.py`
+- Permite seleccionar un archivo ZIP con imágenes, elegir la clase/etiqueta y el destino (train/val/test).
+- Extrae las imágenes, genera las anotaciones YOLO (caja cubriendo toda la imagen) y las guarda en la estructura correcta (`data/images/SPLIT` y `data/labels/SPLIT`).
+- Actualiza o crea automáticamente el archivo `data/data.yaml`.
+- **Uso:**
+  ```bash
+  py -3.12 bulk_labeler.py
+  ```
+- Ideal para datasets homogéneos donde todas las imágenes son de la misma clase.
+
+## 📦 Estructura del proyecto
+
+- `yolo_desktop.py` — App de escritorio PyQt6 para reglas y eventos
+- `app.py` — Dashboard web Streamlit
+- `requirements.txt` — Dependencias
+- `README.md` — Documentación
+- `data/`, `models/`, `recordings/` — Datos, modelos y grabaciones
+
+## 📝 Notas rápidas
+
+- Puedes usar LabelImg o Roboflow para anotar imágenes.
+- El entrenamiento personalizado se realiza con Ultralytics YOLOv8.
+- El proyecto soporta tanto uso educativo como prototipado profesional.
+
+## 🔗 Recursos útiles
+
+- [Roboflow](https://roboflow.com/) — Anotación y gestión de datasets
+- [LabelImg](https://github.com/tzutalin/labelImg) — Anotación local
+- [Ultralytics YOLO Docs](https://docs.ultralytics.com/) — Documentación oficial
+
+## 🏁 ¡Comienza a experimentar!
+
+1. Prueba la app de escritorio para automatizaciones y eventos.
+2. Usa el dashboard web para análisis y monitoreo.
+3. Anota y entrena tus propios modelos fácilmente.
