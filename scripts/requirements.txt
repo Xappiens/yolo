@@ -1,0 +1,24 @@
+ultralytics>=8.0.0      # YOLO models
+torch>=2.0.0           # Deep learning framework
+torchvision>=0.15.0    # Computer vision utilities
+opencv-python>=4.8.0   # Image processing
+pillow>=10.0.0         # Image manipulation
+numpy>=1.24.0          # Numerical operations
+matplotlib>=3.7.0      # Plotting and visualization
+seaborn>=0.12.0        # Statistical visualization
+gradio>=4.0.0          # Interactive ML interfaces
+streamlit>=1.28.0      # Dashboard and visualizations
+fastapi>=0.104.0       # Modern REST APIs
+uvicorn>=0.24.0        # ASGI server
+python-multipart      # File upload handling
+python-jose[cryptography] # JWT tokens
+passlib[bcrypt]       # Password hashing
+pydantic>=2.0.0       # Data validation
+requests>=2.31.0      # HTTP client
+tqdm>=4.66.0         # Progress bars
+pytest>=7.4.0        # Testing framework
+pytest-asyncio>=0.21.0 # Async testing
+black>=23.7.0        # Code formatting
+isort>=5.12.0        # Import sorting
+flake8>=6.1.0        # Code linting
+mypy>=1.5.0          # Type checking
