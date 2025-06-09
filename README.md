@@ -258,186 +258,79 @@ For support, please open an issue in the GitHub repository or contact the mainta
 - The open-source community for their contributions
 - All the educators and researchers who inspired this project
 
-# YOLO Real-Time Dashboard
+# 🖥️ Included Applications
 
-Este proyecto proporciona una interfaz web para la detección de objetos en tiempo real usando YOLOv8, con características avanzadas de monitoreo y análisis.
+### 1. Desktop App (PyQt6)
 
-## Características
-
-- 🎥 Detección de objetos en tiempo real
-- 📊 Estadísticas de detección en vivo
-- 📹 Grabación de video
-- 🔄 Soporte para múltiples cámaras
-- ⚙️ Configuración flexible
-- 📈 Monitoreo de FPS
-- 📝 Registro de eventos
-
-## Requisitos
-
-- Python 3.12 o superior
-- Cámara web o dispositivo de captura
-- Dependencias listadas en `requirements.txt`
-
-## Instalación
-
-1. Clonar el repositorio:
-
-```bash
-git clone <url-del-repositorio>
-cd yolo
-```
-
-2. Instalar dependencias:
-
-```bash
-py -3.12 -m pip install -r requirements.txt
-```
-
-## Uso
-
-1. Iniciar la aplicación:
-
-```bash
-streamlit run app.py
-```
-
-2. Abrir el navegador en la URL mostrada (generalmente http://localhost:8501)
-
-3. Configurar en el panel lateral:
-   - Seleccionar modelo YOLO
-   - Ajustar umbral de confianza
-   - Seleccionar cámara
-   - Activar/desactivar grabación
-
-## Controles
-
-- **Panel lateral**: Configuración de la aplicación
-- **Vista principal**:
-  - Izquierda: Video en tiempo real con detecciones
-  - Derecha: Estadísticas de detección
-
-## Características avanzadas
-
-### Grabación de video
-
-- Los videos se guardan en la carpeta `recordings`
-- Formato: MP4
-- Nombre: `recording_YYYYMMDD_HHMMSS.mp4`
-
-### Estadísticas
-
-- FPS en tiempo real
-- Historial de detecciones
-- Clase y confianza de cada detección
-
-### Múltiples cámaras
-
-- Soporte para hasta 10 cámaras
-- Cambio dinámico entre cámaras
-
-## Solución de problemas
-
-1. **Error de cámara**:
-
-   - Verificar que la cámara esté conectada
-   - Comprobar el índice de cámara en la configuración
-
-2. **Bajo rendimiento**:
-
-   - Usar un modelo más ligero (yolov8n.pt)
-   - Reducir la resolución de la cámara
-   - Aumentar el umbral de confianza
-
-3. **Error de memoria**:
-   - Reducir el número de detecciones guardadas
-   - Limpiar la caché del navegador
-
-## Contribuir
-
-Las contribuciones son bienvenidas. Por favor, sigue estos pasos:
-
-1. Fork el repositorio
-2. Crea una rama para tu feature
-3. Commit tus cambios
-4. Push a la rama
-5. Abre un Pull Request
-
-## Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
-
-## 🖥️ Aplicaciones incluidas
-
-### 1. App de escritorio (PyQt6)
-
-- Archivo: `yolo_desktop.py`
-- Permite seleccionar la cámara, definir reglas de eventos personalizados (notificaciones, comandos, emails) y monitorizar detecciones en tiempo real.
-- **Uso:**
+- File: `yolo_desktop.py`
+- Allows you to select the camera, define custom event rules (notifications, commands, emails), and monitor detections in real time.
+- **Usage:**
   ```bash
   py -3.12 yolo_desktop.py
   ```
 
-### 2. Dashboard web en tiempo real (Streamlit)
+### 2. Real-Time Web Dashboard (Streamlit)
 
-- Archivo: `app.py`
-- Interfaz web moderna para detección en tiempo real, estadísticas, grabación y selección de cámara.
-- **Uso:**
+- File: `app.py`
+- Modern web interface for real-time detection, statistics, recording, and camera selection.
+- **Usage:**
   ```bash
   streamlit run app.py
   ```
 
-### 3. Herramienta de anotación LabelImg
+### 3. Image Annotation Tool: LabelImg
 
-- Instalación incluida vía pip.
-- Permite anotar imágenes localmente en formato YOLO.
-- **Uso:**
+- Installed via pip.
+- Allows you to annotate images locally in YOLO format.
+- **Usage:**
   ```bash
   labelImg
   ```
 
-### 4. Entrenamiento personalizado con Roboflow y YOLOv8
+### 4. Custom Training with Roboflow and YOLOv8
 
-- Sube tus imágenes a [Roboflow](https://roboflow.com/), anótalas y exporta en formato YOLOv8.
-- Descarga el dataset y entrena tu modelo con:
+- Upload your images to [Roboflow](https://roboflow.com/), annotate them, and export in YOLOv8 format.
+- Download the dataset and train your model with:
   ```bash
   yolo detect train data=data.yaml model=yolov8n.pt epochs=50 imgsz=640
   ```
-- Cambia el modelo en las apps para usar tu modelo entrenado (`best.pt`).
+- Change the model in the apps to use your trained model (`best.pt`).
 
-### 5. Etiquetado masivo de imágenes desde ZIP (Bulk Labeler)
+### 5. Bulk Image Labeling from ZIP (Bulk Labeler)
 
-- Archivo: `bulk_labeler.py`
-- Permite seleccionar un archivo ZIP con imágenes, elegir la clase/etiqueta y el destino (train/val/test).
-- Extrae las imágenes, genera las anotaciones YOLO (caja cubriendo toda la imagen) y las guarda en la estructura correcta (`data/images/SPLIT` y `data/labels/SPLIT`).
-- Actualiza o crea automáticamente el archivo `data/data.yaml`.
-- **Uso:**
+- File: `bulk_labeler.py`
+- Lets you select a ZIP file with images, choose the class/label and the destination (train/val/test).
+- Extracts images, generates YOLO annotations (box covering the whole image), and saves them in the correct structure (`data/images/SPLIT` and `data/labels/SPLIT`).
+- Automatically updates or creates the `data/data.yaml` file.
+- **Usage:**
   ```bash
   py -3.12 bulk_labeler.py
   ```
-- Ideal para datasets homogéneos donde todas las imágenes son de la misma clase.
+- Ideal for homogeneous datasets where all images belong to the same class.
 
-## 📦 Estructura del proyecto
+## 📦 Project Structure
 
-- `yolo_desktop.py` — App de escritorio PyQt6 para reglas y eventos
-- `app.py` — Dashboard web Streamlit
-- `requirements.txt` — Dependencias
-- `README.md` — Documentación
-- `data/`, `models/`, `recordings/` — Datos, modelos y grabaciones
+- `yolo_desktop.py` — PyQt6 desktop app for rules and events
+- `app.py` — Streamlit web dashboard
+- `bulk_labeler.py` — Bulk labeling desktop app
+- `requirements.txt` — Dependencies
+- `README.md` — Documentation
+- `data/`, `models/`, `recordings/` — Data, models, and recordings
 
-## 📝 Notas rápidas
+## 📝 Quick Notes
 
-- Puedes usar LabelImg o Roboflow para anotar imágenes.
-- El entrenamiento personalizado se realiza con Ultralytics YOLOv8.
-- El proyecto soporta tanto uso educativo como prototipado profesional.
+- You can use LabelImg or Roboflow to annotate images.
+- Custom training is done with Ultralytics YOLOv8.
+- The project supports both educational and professional prototyping use cases.
 
-## 🔗 Recursos útiles
+## 🔗 Useful Resources
 
-- [Roboflow](https://roboflow.com/) — Anotación y gestión de datasets
-- [LabelImg](https://github.com/tzutalin/labelImg) — Anotación local
-- [Ultralytics YOLO Docs](https://docs.ultralytics.com/) — Documentación oficial
+- [Roboflow](https://roboflow.com/) — Annotation and dataset management
+- [LabelImg](https://github.com/tzutalin/labelImg) — Local annotation
+- [Ultralytics YOLO Docs](https://docs.ultralytics.com/) — Official documentation
 
-## 🏁 ¡Comienza a experimentar!
+## 🏁 Get Started!
 
-1. Prueba la app de escritorio para automatizaciones y eventos.
-2. Usa el dashboard web para análisis y monitoreo.
-3. Anota y entrena tus propios modelos fácilmente.
+1. Try the desktop app for automations and event rules.
+2. Use the web dashboard for analysis and monitoring.
+3. Annotate and train your own models easily.
