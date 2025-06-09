@@ -1,5 +1,7 @@
 # 🚀 YOLO Computer Vision Apps
 
+**Developed and maintained by [Xappiens.com](https://xappiens.com)**
+
 ## 📋 Overview
 
 **YOLO Computer Vision Apps** is an educational and experimentation platform that enables you to work with state-of-the-art computer vision models, including web and desktop interfaces, as well as tools for custom training and image annotation.
@@ -257,6 +259,7 @@ For support, please open an issue in the GitHub repository or contact the mainta
 - Ultralytics for the YOLO framework
 - The open-source community for their contributions
 - All the educators and researchers who inspired this project
+- **Developed and maintained by [Xappiens.com](https://xappiens.com)**
 
 # 🖥️ Included Applications
 
